@@ -3,11 +3,43 @@ body{
 font-family: 'Open Sans', sans-serif;
 background-color: #efebe9;
 }
-h2{
+h2,h3{
 	text-align: center;
 	margin-left: 5px;
 	margin-right: 5px;
 	border:solid 2px #4e342e;
 	background-color: #4e342e;
 	color: #fff;
+}
+.pitch{
+	display: block;
+	border:solid 1px;
+	width: 600px;
+	text-align: justify;
+	padding:10px;
+	margin: auto;
+}
+.decouverte{
+	font-size: 30px;
+	background: yellow;
+	width: 400px;
+	border:solid 1px;
+	text-align: center;
+	padding: 10px;
+	margin:0 auto;
+
+}
+.identification{
+	font-size: 20px;
+	background: yellow;
+	width: 200px;
+	border:solid 1px;
+	text-align: center;
+	padding: 10px;
+	margin:0 auto;
+	margin-top: 10px;
+}
+.container{
+	margin-bottom: 10px;
+	margin-top: 10px;
 }
