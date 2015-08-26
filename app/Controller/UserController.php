@@ -40,10 +40,9 @@ class UserController extends Controller
 					// connexion l'user
 				$am->loginUserIn($user);
 
-		// 			// redirection
+					// redirection
 
-		// 			$this->redirectionToRoute('show_all_terms');
-
+					// $this->redirectionToRoute('show_all_terms');
 
 			}else{
 				$error = "Mauvais identifiants !";
@@ -131,71 +130,71 @@ class UserController extends Controller
 		
 		if(empty($nom)){
 			$error['nom'] = "Veuillez saisir votre nom !";
-		}
-		if(empty($prenom)){
-			$error['prenom'] = "Veuillez saisir votre prenom !";
-		}
-		if(empty($adress)){
-			$error['adress'] = "Veuillez saisir votre adress !";
-		}
-		if(empty($code_postal)){
-			$error['code_postal'] = "Veuillez saisir votre code postal!";
-		}elseif(!preg_match($code_postalRegexp, $code_postal)){
-			$error['code_postal'] = "votre code postal doit correspondre à 5 chiffres";
-		}
-		if(empty($tel)){
-			$error['tel'] = "Veuillez saisir votre tel!";
-		}elseif(!preg_match($telRegexp, $tel)){
+			}
+			if(empty($prenom)){
+				$error['prenom'] = "Veuillez saisir votre prenom !";
+			}
+			if(empty($adress)){
+				$error['adress'] = "Veuillez saisir votre adress !";
+			}
+			if(empty($code_postal)){
+				$error['code_postal'] = "Veuillez saisir votre code postal!";
+			}elseif(!preg_match($code_postalRegexp, $code_postal)){
+				$error['code_postal'] = "votre code postal doit correspondre à 5 chiffres";
+			}
+			if(empty($tel)){
+				$error['tel'] = "Veuillez saisir votre tel!";
+			}elseif(!preg_match($telRegexp, $tel)){
 			$error['tel'] = "votre numero de tel doit correspondre à 10 chiffres";
 		}
 
 		/* fin de la validation */
 
-					// si valide...
+		// si valide...
 		if(empty($error)){
 
-		//}
-						// hacher le mot de passe 
-		$hashedPassword  = password_hash($password, PASSWORD_DEFAULT);
+			//}
+			// hacher le mot de passe 
+			$hashedPassword  = password_hash($password, PASSWORD_DEFAULT);
 
-		$newUser = [
+			$newUser = [
+			"username" 		=> $username,
+			"email" 		=> $email,
+			"password" 		=> $hashedPassword,
+			"nom" 			=> $nom,
+			"prenom" 		=> $prenom,
+			"code_postal" 	=> $code_postal,
+			"adress" 		=> $adress,
+			"tel" 			=> $tel,
+										// "role" 			=> "admin",
+			"date_created"	=> date("Y-m-d H:i:s"),
+			"date_modified" 	=> date("Y-m-d H:i:s"),
+			];
+					// debug($_POST);
+					// die();
+					//inseérrer en base
+			$UserManager->insert($newUser);
+		}
+
+					//afficher bravo ou rediriger ou faire quelque 
+
+					//si invalide..
+				   //envoyer les erreurs et les données soumises à la vue 
+		}
+		$dataToPassToTheView = [
 		"username" 		=> $username,
 		"email" 		=> $email,
-		"password" 		=> $hashedPassword,
+		"password" 		=> $password,
 		"nom" 			=> $nom,
 		"prenom" 		=> $prenom,
 		"code_postal" 	=> $code_postal,
 		"adress" 		=> $adress,
 		"tel" 			=> $tel,
-									// "role" 			=> "admin",
-		"date_created"	=> date("Y-m-d H:i:s"),
-		"date_modified" 	=> date("Y-m-d H:i:s"),
-		];
-						// debug($_POST);
-						// die();
-						//inseérrer en base
-		$UserManager->insert($newUser);
+		"errors" 		=> $error,
+		];	
+		$this->show('temps/abonnement', $dataToPassToTheView);
+				// $this->RedirectToRoute('abonnement');
 	}
-
-						//afficher bravo ou rediriger ou faire quelque 
-
-					//si invalide..
-					   //envoyer les erreurs et les données soumises à la vue 
-	}
-	$dataToPassToTheView = [
-	"username" 		=> $username,
-	"email" 		=> $email,
-	"password" 		=> $password,
-	"nom" 			=> $nom,
-	"prenom" 		=> $prenom,
-	"code_postal" 	=> $code_postal,
-	"adress" 		=> $adress,
-	"tel" 			=> $tel,
-	"errors" 		=> $error,
-	];	
-	$this->show('temps/abonnement', $dataToPassToTheView);
-			// $this->RedirectToRoute('abonnement');
-}
 
 
 }

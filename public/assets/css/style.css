@@ -14,16 +14,19 @@ h2,h3{
 .pitch{
 	display: block;
 	border:solid 1px;
+	border-radius: 4px;
 	width: 600px;
 	text-align: justify;
 	padding:10px;
 	margin: auto;
+	background:#FFFDE7;
 }
 .decouverte{
 	font-size: 30px;
 	background: yellow;
 	width: 400px;
 	border:solid 1px;
+	border-radius: 4px;
 	text-align: center;
 	padding: 10px;
 	margin:0 auto;
@@ -34,6 +37,7 @@ h2,h3{
 	background: yellow;
 	width: 200px;
 	border:solid 1px;
+	border-radius: 4px;
 	text-align: center;
 	padding: 10px;
 	margin:0 auto;

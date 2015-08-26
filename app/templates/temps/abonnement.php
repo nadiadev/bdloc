@@ -10,8 +10,6 @@
 				<label>Username</label>
 				<input type="text" id='username' name='username'  ><div><?php if (!empty($errors['username'])){echo $errors['username'];}?></div><br />
 
-
-
 				<label>Email</label>
 				<input type="email" id='email' name='email' required><div><?php if (!empty($errors['email'])){echo $errors['email'];}?></div><br />
 
@@ -45,7 +43,5 @@
 			
 		</div>
 		
-
-
 	<?php $this->stop('main_content') ?>
 
