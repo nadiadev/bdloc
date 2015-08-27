@@ -16,6 +16,9 @@
 				<input type="submit" name="Valider">
 				<!--input type="reset" name="reset"-->
 			</form>
+			<div class="catalogue">
+	<a href="<?= $this->url('catalogue'); ?>" title="catalogue">Bienvenue sur le catalogue !</a>
+</div>
 		</div>
 
 	<?php $this->stop('main_content') ?>
