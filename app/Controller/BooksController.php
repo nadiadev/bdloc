@@ -6,9 +6,7 @@ class BooksController extends Controller
 {
 	public function home()
 	{
-			///ce serait ici que 
-			//l'on ajouterais une requete sql
-		///afiche la page home
+		
 		$bdManager = new \Manager\BdManager();
 		$bd = $bdManager->getRandomBd();
 		print_r($bd);
@@ -18,7 +16,7 @@ class BooksController extends Controller
 	{
 		$booksManager = new \Books\BooksManager();
 		$books= $booksManager->showDefault();
-	
+
 
 		$this->show('temps\catalogue',['books'=>$books]);
 	}
@@ -27,7 +25,7 @@ class BooksController extends Controller
 	{
 		$booksManager = new \Books\BooksManager();
 		$books= $booksManager->filtre();
-	
+
 
 		$this->show('temps\catalogue',['books'=>$books]);
 	}

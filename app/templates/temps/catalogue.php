@@ -1,7 +1,14 @@
 <?php $this->layout('layout', ['title' => ' Catalogue BDLOC']) ?>
 
 <?php $this->start('main_content') ?>
+<?php 
+$start = 20;
+// Affichage par nombre de bd
+if (!empty($_GET['start'])){
+	$start = $_GET['start'];
 
+}
+ ?>
 <nav>
 	<ul>
 		<li><h4>Bdloc</h4></li>
@@ -19,6 +26,7 @@
 </nav>
 
 <hr />
+
 
 <div class="filtres">
 	<h5>Catégories</h5><br />
@@ -45,9 +53,39 @@
 
 		<input type="submit" value="OK" />
 	</form>
-
-
 </div>
+
+<div class="tri">
+	<form>
+		<select>
+			<option>Date d'ajout au catalogue</option>
+			<option>Ordre alphabétique de titres</option>
+			<option>Date de publication</option>
+		</select>
+	</form>
+</div>
+
+<div class="nbr_bd">
+	<form>
+		<select name="number" id="byNumber">
+			<option value="20">20 Bds</option>
+			<option value="40">40 Bds</option>
+			<option value="60">60 Bds</option>
+		</select>
+		<input type="submit" value="ok" />
+	</form>
+</div>
+
+<div method="GET">
+	<a href="?start=<?= $start-20 ?>">Précédent</a>
+	<a href="?start=<?= $start+20 ?>">Suivant</a>
+	
+</div>
+
+
+
+
+
 <div class="box">
 	<?php foreach($books as $book){ ?>
 	<div class="affiche">
