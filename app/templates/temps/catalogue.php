@@ -137,6 +137,19 @@ width:23%;
 			</form>
 
 			
+	<!--affichage de la page catalogue par default -->
+	<!-- </div>
+	<div class="box">
+	<?php// foreach($books as $book){ ?>
+	<div class="affiche">
+	<div class="image"><img src="<?php //echo $this->assetUrl('thumbnails_cover/'.$book['cover']) ?>" /></div>
+	<div class="text"><br /><br /><p><?php// echo "Titre : ".$book['title']."<br /> Illustrateur : ".$book['illuLastName']."<br />Scenariste : ".$book['scenaLastName']."<br />Coloriste : ".$book['colorLastName'] ?></p></div>
+	</div>
+	<?php
+	//}
+	?>
+	</div> -->
+	<!--affichage du resultat du filtre recherche  -->
 	</div>
 	<div class="box">
 	<?php foreach($books as $book){ ?>

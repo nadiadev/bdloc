@@ -5,6 +5,23 @@ namespace Books;
 class BooksManager extends \W\Manager\Manager
 {
 		
+		/*public function showDefault()
+		{
+			$sql = "SELECT  books.title,books.cover,illu.lastName AS illuLastName,scena.lastName AS scenaLastName,
+			color.lastName AS colorLastName
+					FROM books 
+					LEFT JOIN authors AS illu
+					ON books.illustrator = illu.id
+					LEFT JOIN authors AS scena
+					ON books.illustrator = scena.id
+					LEFT JOIN authors AS color
+					ON books.illustrator = color.id";
+					$sth = $this->dbh->prepare($sql);
+					$sth->execute();
+					$bdloc = $sth->fetchAll();
+
+					return $bdloc;
+		}		*/
 
 		public function filtre()
 
@@ -33,9 +50,5 @@ class BooksManager extends \W\Manager\Manager
 
 			return $bdloc;
 		} 
-		public function affichage()
-		{
-
-		}		
 
 }
