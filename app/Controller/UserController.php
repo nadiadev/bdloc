@@ -66,7 +66,7 @@ class UserController extends Controller
 		$email = "";
 		$password = "";
 		$password_confirm = "";
-		$hashedPassword = "";
+		$hashedPassword	= "";
 		$nom = "";
 		$prenom = "";
 		$code_postal = "";
