@@ -1,20 +1,15 @@
 <?php $this->layout('layout', ['title' => ' Catalogue BDLOC']) ?>
 
 <?php $this->start('main_content') ?>
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
-	
-	<!--<title>BDLOC</title>-->
-</head>
+
+
+
 <style>
 nav{
-	border:solid 1px;
-	margin-bottom: 5px;
-	width: 800px;
 	
+	margin-bottom: 5px;
+	width: 100%;
+
 }
 a{
 text-decoration: none;
@@ -37,13 +32,61 @@ h4{
 	margin-right: 30px;
 }
 .filtres{
-	width:200px;
+	width:20%;
 	border:solid 1px;
 	margin-left: 10px;
 	padding: 10px;
+	float:left;
 }
+.box{
+	width:75%;
+	float : left;
+	
+
+}
+/*.box img,p{
+	width:45%;
+	border:solid 1px;
+	float:left;
+	margin:5px;
+}*/
+.image{
+	width:45%;
+
+	
+	float:left;
+	margin:5px;
+}
+img{
+	max-width: 100%;
+}
+/*p{
+width:23%;
+	border:solid 1px;
+	float:left;
+	margin:5px;	
+}*/
+.text{
+	width:45%;
+	
+	float:left;
+	margin:5px;
+}
+.affiche{
+	width: 45%;
+	height: 300px;
+	
+	
+	float:left;
+	
+}
+.bonjour{
+	width:10%;
+	float:right;
+}
+
 </style>
-<body>
+
 
 <nav>
 <ul>
@@ -53,11 +96,18 @@ h4{
 	<li><a href="" >Mon compte</a></li>
 	
 </ul>
+<div class="bonjour">
+	Bonjour<br />
+	<br />
+	<a href="">deconnexion</a>
+</div>
+
 </nav>
-<hr></hr>
+
+<hr />
 	
 <div class="filtres">
-	<h5>Catégories</h5></br>
+	<h5>Catégories</h5><br />
  <form action="">
  	<input type="checkbox" name="disponible" value="disponible"> Polar<br>
  	<input type="checkbox" name="disponible" value="disponible"> Historique<br>
@@ -65,27 +115,20 @@ h4{
  	<input type="checkbox" name="disponible" value="disponible"> Aventure<br>
  	<input type="checkbox" name="disponible" value="disponible"> Jeunesse<br>
  	<input type="checkbox" name="disponible" value="disponible"> Fantastique<br>
- </br>
- <h5>Disponibilité</h5></br>
+ <br />
+ <h5>Disponibilité</h5><br />
   <input type="checkbox" name="disponible" value="disponible"> disponible<br>
   <input type="checkbox" name="indisponible" value="indisponible" checked>indisponible<br>
   <input type="submit" value="Valider">
 </form>
-</br>
+<br />
 
 <!--<div class="inner-box">-->
 
 
 <!-- </div> -->
-
-
-
-
-		
-	
-
 			<form method="GET" action="">
-				<label>Recherche</label></br>
+				<label>Recherche</label><br />
 				<input type="text" name="recherche">
 				
 					
@@ -95,18 +138,22 @@ h4{
 
 			
 	</div>
-
-
-
-
-
-
-<div class="box"><?php foreach ( $books as $book){
-echo $book['title']."</br>";
-}
-?>
-
+	<div class="box">
+	<?php foreach($books as $book){ ?>
+	<div class="affiche">
+	<div class="image"><img src="<?php echo $this->assetUrl('thumbnails_cover/'.$book['cover']) ?>" /></div>
+	<div class="text"><br /><br /><p><?php echo "Titre : ".$book['title']."<br /> Illustrateur : ".$book['illuLastName']."<br />Scenariste : ".$book['scenaLastName']."<br />Coloriste : ".$book['colorLastName'] ?></p></div>
 	</div>
-</body>
+	<?php
+	}
+	?>
+	</div>
+
+<!-- <div class="box"><?php//foreach ( $books as $book){
+//echo '<div class="affiche"><img src="'.$this->assetUrl('thumbnails_cover/'.$book['cover']).'">'.$book['title']."</div>";
+//}
+?> -->
+
+	
+
 <?php $this->stop('main_content') ?>
-</html>
