@@ -46,8 +46,10 @@ class UserController extends Controller
 					 $this->redirectToRoute('catalogue');
 
 			}else{
-				 $error['username'] = "Mauvais identifiant !";
-				 $error['password'] = "Mauvais mot de passe !";
+				 $error = "Mauvais identifiant ! ou Mauvais mot de passe !" ;
+				 
+
+				 echo $error;
 			}
 		}
 
@@ -195,8 +197,9 @@ class UserController extends Controller
 		"errors" 		=> $error,
 		];	
 		$this->show('temps/abonnement', $dataToPassToTheView);
+		
 				// $this->RedirectToRoute('abonnement');
 	}
-
+	
 
 }

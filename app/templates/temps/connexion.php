@@ -9,15 +9,17 @@
 			
 			<form method="POST" novalidate action="" >
 				<label>Username</label>
-				<input type="text" id='username' name='username' required><div><?php if (!empty($error['username'])){echo $error['username'];}?></div><br />		
+				<input type="text" id='username' name='username'><br />	
 
 				<label>Mot de passe </label>
-				<input type="password" id='password' name='password' required><div><?php if (!empty($error['password'])){echo $error['password'];}?><br />
+				<input type="password" id='password' name='password'><br />
 
 				<input type="submit" name="Valider">
 				<!--input type="reset" name="reset"-->
 			</form>
-			
+			<div>
+				
+			</div>
 		</div>
 
 	<?php $this->stop('main_content') ?>
