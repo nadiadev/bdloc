@@ -4,11 +4,29 @@
 <?php 
 $start = 20;
 // Affichage par nombre de bd
+
 if (!empty($_GET['start'])){
 	$start = $_GET['start'];
 
 }
  ?>
+ <style>
+#showDetails{
+	
+	width:50%;
+	
+	margin: 0 auto;
+	margin-top: 10%;
+	margin-left:20%;
+	z-index: 99999;
+	position: absolute;
+	background-color: #ccc;
+}
+#close{
+	border:solid 3px;
+}
+
+ </style>
 <nav>
 	<ul>
 		<li><h4>Bdloc</h4></li>
@@ -86,16 +104,24 @@ if (!empty($_GET['start'])){
 
 
 
-<div class="box">
+<div class="box" data-modale-path="<?= $this->url('modale'); ?>">
 	<?php foreach($books as $book){ ?>
-	<div class="affiche">
+	<div class="affiche" data-id="<?= $book['id']; 	?>">
 		<div class="image"><img src="<?php echo $this->assetUrl('thumbnails_cover/'.$book['cover']) ?>" /></div>
 		<div class="text"><br /><br /><p><?php echo "Titre : ".$book['title']."<br /> Illustrateur : ".$book['illuLastName']."<br />Scenariste : ".$book['scenaLastName']."<br />Coloriste : ".$book['colorLastName'] ?></p></div>
+		<!-- <div class="details"><a href="details.php">Plus de details</a></div> -->
+		<button class="details">Plus de details</button>
 	</div>
 	<?php
 }
 ?>
-<div class="details"><a href="details.php">Plus de details</a></div>
+</div>
+
+<div id="showDetails">
+	<div>
+<!-- <a href="#close" title="close" class="close">retour</a> -->
+<script type="text/javascript" src="<?= $this->assetUrl('js/catalog.js'); ?>"></script>
+</div>
 </div>
 
 <?php $this->stop('main_content') ?>

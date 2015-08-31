@@ -29,12 +29,22 @@ class BooksController extends Controller
 
 		$this->show('temps\catalogue',['books'=>$books]);
 	}
-	public function find()
+	// public function find()
+	// {
+	// 	$booksManager = new \Books\BooksManager();
+	// 	$books= $booksManager->find();
+
+
+	// 	$this->show('temps\details',['books'=>$books]);
+	// }
+
+	public function modale()
 	{
+		$id = $_GET['id'];
+
 		$booksManager = new \Books\BooksManager();
-		$books= $booksManager->find();
+		$book= $booksManager->modale($id);
 
-
-		$this->show('temps\details',['books'=>$books]);
+		$this->show('temps\modale',['book'=>$book]);
 	}
 }
