@@ -1,8 +1,8 @@
-<?php $this->layout('layout', ['title' => 'Nouvel abonnement']) ?>
+<?php $this->layout('layout', ['title' => 'Details']) ?>
    
    <?php $this->start('main_content') ?>
    <!--link rel="stylesheet" type="text/css" href="<= $this->assetUrl('css/style.css')"-->
-      <h2>Inscription</h2>
+      <h2>Details</h2>
       <title></title>
       <!-- On importe la bibliothèque JQuery-->
       <script src="JQuery-1.10.1.min.js" type="text/javascript"></script>
@@ -26,7 +26,7 @@
    padding:20px;
    border-radius: 10px;
    background-color: white;
-   border: 1px solid grey;
+   border: 1px solid gray;
 }
 
 #modal {

@@ -95,6 +95,7 @@ if (!empty($_GET['start'])){
 	<?php
 }
 ?>
+<div class="details"><a href="details.php">Plus de details</a></div>
 </div>
 
 <?php $this->stop('main_content') ?>

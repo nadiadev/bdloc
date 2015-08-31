@@ -26,7 +26,7 @@ class BooksManager extends \W\Manager\Manager
 
 		}
 
-		$sql = "SELECT  books.title,books.cover,illu.lastName AS illuLastName,scena.lastName AS scenaLastName,
+		$sql = "SELECT  books.id,books.title,books.cover,illu.lastName AS illuLastName,scena.lastName AS scenaLastName,
 		color.lastName AS colorLastName
 		FROM books 
 		LEFT JOIN authors AS illu
@@ -45,9 +45,18 @@ class BooksManager extends \W\Manager\Manager
 		$sth->bindValue(":recherche", '%'.$recherche.'%');
 		$sth->execute();
 		$bdloc = $sth->fetchAll();
-		//debug($bdloc);
+		/*debug($bdloc);*/
 
 		return $bdloc;
 	} 
+	public function find($id){
+		debug($bdloc);
+	echo $bdloc['id'];	
+
+
+	/*$this->find($bdloc['id']);*/	 
+	}
+
+	
 
 }

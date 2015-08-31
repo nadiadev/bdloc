@@ -29,4 +29,12 @@ class BooksController extends Controller
 
 		$this->show('temps\catalogue',['books'=>$books]);
 	}
+	public function find()
+	{
+		$booksManager = new \Books\BooksManager();
+		$books= $booksManager->find();
+
+
+		$this->show('temps\details',['books'=>$books]);
+	}
 }
