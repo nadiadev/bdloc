@@ -3,7 +3,7 @@ namespace Controller;
 
 use \W\Controller\Controller;
 use \Manager\UserManager;
-use \W\security\authentificationManager;
+use \W\Security\AuthentificationManager;
 
 class UserController extends Controller
 {
@@ -26,7 +26,7 @@ class UserController extends Controller
 		if(!empty($_POST)){
 			$username = $_POST['username'];
 			$password = $_POST['password'];
-
+			
 			$result = $am->isValidLoginInfo($username, $password);
 
 			// si valide : connexion
@@ -36,16 +36,18 @@ class UserController extends Controller
 					// récuper l'utilisateur
 				$UserManager = new \Manager\UserManager();
 				$user = $UserManager->find($userId);
-
+				
 					// connexion l'user
-				$am->loginUserIn($user);
+				$am->logUserIn($user);
 
 					// redirection
-
-					// $this->redirectionToRoute('show_all_terms');
+			
+	
+					 $this->redirectToRoute('catalogue');
 
 			}else{
-				$error = "Mauvais identifiants !";
+				 $error['username'] = "Mauvais identifiant !";
+				 $error['password'] = "Mauvais mot de passe !";
 			}
 		}
 
