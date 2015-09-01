@@ -14,16 +14,25 @@ if (!empty($_GET['start'])){
 #showDetails{
 	
 	width:50%;
-	
-	margin: 0 auto;
+	margin:0 auto;
 	margin-top: 10%;
-	margin-left:20%;
-	z-index: 99999;
+	margin-left:25%;
+	z-index: 9999;
 	position: absolute;
 	background-color: #ccc;
 }
 #close{
 	border:solid 3px;
+}
+#panier{
+	margin:auto;
+	width: 33 %;
+	height: 15%;
+	color:#fff;
+	padding:5px;
+	font-size: 20px;
+	
+	background-color: black;
 }
 
  </style>
@@ -108,7 +117,7 @@ if (!empty($_GET['start'])){
 	<?php foreach($books as $book){ ?>
 	<div class="affiche" data-id="<?= $book['id']; 	?>">
 		<div class="image"><img src="<?php echo $this->assetUrl('thumbnails_cover/'.$book['cover']) ?>" /></div>
-		<div class="text"><br /><br /><p><?php echo "Titre : ".$book['title']."<br /> Illustrateur : ".$book['illuLastName']."<br />Scenariste : ".$book['scenaLastName']."<br />Coloriste : ".$book['colorLastName'] ?></p></div>
+		<div class="text"><br /><br /><p><?php echo "Titre : ".$book['title']."<br /> Illustrateur : ".$book['illuLastName']."<br />Scenariste : ".$book['scenaLastName']."<br />Coloriste : ".$book['colorLastName']//."<br />Categorie : ".$book['serieStyle'] ?></p></div>
 		<!-- <div class="details"><a href="details.php">Plus de details</a></div> -->
 		<button class="details">Plus de details</button>
 	</div>
@@ -121,7 +130,9 @@ if (!empty($_GET['start'])){
 	<div>
 <!-- <a href="#close" title="close" class="close">retour</a> -->
 <script type="text/javascript" src="<?= $this->assetUrl('js/catalog.js'); ?>"></script>
+
 </div>
+
 </div>
 
 <?php $this->stop('main_content') ?>

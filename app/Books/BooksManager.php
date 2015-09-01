@@ -58,8 +58,15 @@ class BooksManager extends \W\Manager\Manager
 
 	public function modale($id)
 	{
-		$sql = "SELECT  books.id,books.title,books.cover,illu.lastName AS illuLastName,scena.lastName AS scenaLastName,
+		$sql = "SELECT  
+		books.id,
+		books.title,
+		books.cover,
+		/*books.serie_id,*/
+		illu.lastName AS illuLastName,
+		scena.lastName AS scenaLastName,
 		color.lastName AS colorLastName
+		/*serie.style AS serieStyle		modi*/
 		FROM books 
 		LEFT JOIN authors AS illu
 		ON books.illustrator = illu.id
@@ -67,7 +74,9 @@ class BooksManager extends \W\Manager\Manager
 		ON books.illustrator = scena.id
 		LEFT JOIN authors AS color
 		ON books.illustrator = color.id
-		WHERE books.id = :id";
+		/*LEFT JOIN series AS style 		modi*/
+		/*ON books.illustrator = style.id  modi*/
+		WHERE books.id = :id /*AND books.serie_id = style.id*/";
 
 		$sth = $this->dbh->prepare($sql);
 		$sth->bindValue(":id", $id);
