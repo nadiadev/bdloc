@@ -7,5 +7,6 @@
 		['GET|POST','/temps/catalogue/','Books#filtre','catalogue'],
 		['GET', '/temps/details/', 'Books#find', 'details'],
 		['GET','/modale/details/', 'Books#modale', 'modale'],
+		
 
 	);
