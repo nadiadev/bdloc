@@ -48,6 +48,7 @@ function initMap() {
 
    marker = new google.maps.Marker({
      map: map,
+     title: "f",
      draggable: true,
      animation: google.maps.Animation.DROP,
      position: {lat:  48.8542002, lng:    2.3235780999999633}
@@ -56,6 +57,7 @@ function initMap() {
 
    marker = new google.maps.Marker({
      map: map,
+     title: "e",
      draggable: true,
      animation: google.maps.Animation.DROP,
      position: {lat:  48.8475683, lng:   2.351138600000013}
@@ -64,6 +66,7 @@ function initMap() {
 
    marker = new google.maps.Marker({
      map: map,
+     title: "d",
      draggable: true,
      animation: google.maps.Animation.DROP,
      position: {lat:  48.8479797, lng:  2.3652867000000697}
@@ -72,6 +75,7 @@ function initMap() {
 
    marker = new google.maps.Marker({
      map: map,
+     title: "c",
      draggable: true,
      animation: google.maps.Animation.DROP,
      position: {lat: 48.86368539999999, lng:  2.3527358999999706}
@@ -80,6 +84,7 @@ function initMap() {
 
    marker = new google.maps.Marker({
      map: map,
+     title: "b",
      draggable: true,
      animation: google.maps.Animation.DROP,
      position: {lat: 48.8698981, lng:  2.3502657999999883}
@@ -88,6 +93,7 @@ function initMap() {
 
    marker = new google.maps.Marker({
      map: map,
+     title: "a",
      draggable: true,
      animation: google.maps.Animation.DROP,
      position: {lat: 48.8685692, lng:  2.3356083999999555}
