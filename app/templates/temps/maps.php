@@ -1,12 +1,15 @@
+<?php $this->layout('layout', ['title' => 'Details']) ?>
+   
+<?php $this->start('main_content') ?>
 <!DOCTYPE html>
-<html>
-  <head>
+<!-- <html> -->
+  <!-- <head> -->
     <style type="text/css">
       html, body { height: 100%; margin: 0; padding: 0; }
       #map { height: 100%; }
     </style>
-  </head>
-  <body>
+  <!-- </head> -->
+  <!-- <body> -->
     <div id="map"></div>
     <script type="text/javascript">
 
@@ -114,5 +117,6 @@ function toggleBounce() {
     <script async defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBBPUXgtFypy3PCY6HB-gUoZj4klGUzO8&callback=initMap">
     </script>
-  </body>
-</html>
+ <!--  </body>
+</html> -->
+<?php $this->stop('main_content') ?>
