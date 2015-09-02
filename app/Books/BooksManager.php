@@ -62,11 +62,9 @@ class BooksManager extends \W\Manager\Manager
 		books.id,
 		books.title,
 		books.cover,
-		/*books.serie_id,*/
 		illu.lastName AS illuLastName,
 		scena.lastName AS scenaLastName,
-		color.lastName AS colorLastName
-		/*serie.style AS serieStyle		modi*/
+		color.lastName AS colorLastName	
 		FROM books 
 		LEFT JOIN authors AS illu
 		ON books.illustrator = illu.id
@@ -74,9 +72,7 @@ class BooksManager extends \W\Manager\Manager
 		ON books.illustrator = scena.id
 		LEFT JOIN authors AS color
 		ON books.illustrator = color.id
-		/*LEFT JOIN series AS style 		modi*/
-		/*ON books.illustrator = style.id  modi*/
-		WHERE books.id = :id /*AND books.serie_id = style.id*/";
+		WHERE books.id = :id ";
 
 		$sth = $this->dbh->prepare($sql);
 		$sth->bindValue(":id", $id);
@@ -84,6 +80,19 @@ class BooksManager extends \W\Manager\Manager
 		$book = $sth->fetch();
 
 		return $book; 
+
+
+		$sql = "SELECT  style
+		FROM series 
+		LEFT JOIN books
+		WHERE books.series_id = :id ";
+
+		$sth = $this->dbh->prepare($sql);
+		$sth->bindValue(":id", $id_);
+		$sth->execute();
+		$series = $sth->fetch();
+		debug($series);
+		return $series; 
 	}	
 
 
