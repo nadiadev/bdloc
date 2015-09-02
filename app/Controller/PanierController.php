@@ -29,6 +29,14 @@ class PanierController extends Controller
 
 		$this->show('temps\panier',['bdlocs'=>$bdlocs]);
 	}
+	public function confValidate()
+	{
+		$panierManager = new \Manager\PanierManager();
+		$bdlocs= $panierManager->confValidate();
+
+
+		$this->show('temps\panier',['bdlocs'=>$bdlocs]);
+	}
 	// public function find()
 	// {
 	// 	$booksManager = new \Books\BooksManager();

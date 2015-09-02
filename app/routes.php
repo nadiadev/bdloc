@@ -8,6 +8,7 @@
 		['GET', '/temps/details/', 'Books#find', 'details'],
 		['GET','/modale/details/', 'Books#modale', 'modale'],
 		['GET|POST','/temps/panier/','Panier#filtre','panier'],
+		['GET|POST','/temps/confirmation/','Panier#confValidate','confirmation'],
 		
 
 	);
