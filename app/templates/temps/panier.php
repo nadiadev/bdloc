@@ -1,4 +1,4 @@
-<?php $this->layout('layout', ['title' => ' Catalogue BDLOC']) ?>
+<?php $this->layout('layout', ['title' => ' Panier BDLOC']) ?>
 
 <?php $this->start('main_content') ?>
 <nav>
@@ -18,6 +18,19 @@
 </nav>
 
 <hr /> 
+<div class="box">
+	<?php foreach($bdlocs as $bdloc){  ?>
+	<div class="affiche" data-id="<?= $bdloc['id'] ?>">
+		<div class="image"><img src="<?php echo $this->assetUrl('thumbnails_cover/'.$bdloc['cover']) ?>" /></div>
+		<div class="text"><br /><br /><p><?php echo "Titre : ".$bdloc['title'] ?></p></div>
+		<!-- <div class="details"><a href="details.php">Plus de details</a></div> -->
+		<button class="details">Valider le panier</button>
+		<a href="catalogue.php">Retour catalogue</a>
+	</div>
+	<?php
+}
+?>
+</div>
 
 
 

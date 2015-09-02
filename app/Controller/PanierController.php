@@ -24,10 +24,10 @@ class PanierController extends Controller
 	public function filtre()
 	{
 		$panierManager = new \Manager\PanierManager();
-		$panier= $panierManager->filtre();
+		$bdlocs= $panierManager->filtre();
 
 
-		$this->show('temps\panier',['panier'=>$panier]);
+		$this->show('temps\panier',['bdlocs'=>$bdlocs]);
 	}
 	// public function find()
 	// {

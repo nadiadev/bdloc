@@ -1,5 +1,5 @@
 <?php
-namespace Manager;
+namespace Manager; 
 
 
 class PanierManager extends \W\Manager\Manager
@@ -12,14 +12,16 @@ class PanierManager extends \W\Manager\Manager
 		$sql = "SELECT  id,title,cover
 		FROM books 
 		"; 
-		// 
+		
 		$sth = $this->dbh->prepare($sql);
-		/*$sth->bindValue(":recherche", '%'.$recherche.'%');*/
+		/*$sth->bindValue(":id", $id);
+		$sth->bindValue(":title", $title);
+		$sth->bindValue(":cover", $cover);*/
 		$sth->execute();
-		$bdloc = $sth->fetchAll();
-		/*debug($bdloc);*/
+		$bdlocs = $sth->fetchAll();
+		/*debug($bdlocs);*/
 
-		return $bdloc;
+		return $bdlocs;
 	} 
 	public function find($id){
 		debug($bdloc);
