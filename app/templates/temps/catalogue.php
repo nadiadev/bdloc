@@ -40,14 +40,14 @@ if (!empty($_GET['start'])){
 	<ul>
 		<li><h4>Bdloc</h4></li>
 		<li><a href="" >Les bd</a></li>
-		<li><a href="" >Mon panier</a></li>
+		<li><a href="<?php echo $this->url('panier');?>" >Mon panier</a></li>
 		<li><a href="" >Mon compte</a></li>
 
 	</ul>
 	<div class="bonjour">
-		Bonjour<br />
+		Bonjour :  <?php  echo $w_user['username'];?><br />
 		<br />
-		<a href="">deconnexion</a>
+		<a href="<?php echo $this->url('home');?>">deconnexion</a>
 	</div>
 
 </nav>

@@ -23,46 +23,31 @@ class PanierManager extends \W\Manager\Manager
 
 		return $bdlocs;
 	} 
-	public function confValidate()
+	public function confValidate($userId)
 
 	{
-		
-		$sql = "SELECT  id,title,nbre_article
-		FROM panier 
+		//$w_user = $username;
+		/*$username = "joel";*/
+		$sql = "SELECT  *
+				FROM panier
+				WHERE userId = $userId
 		"; 
 		
 		$sth = $this->dbh->prepare($sql);
-		/*$sth->bindValue(":id", $id);
-		$sth->bindValue(":title", $title);
-		$sth->bindValue(":cover", $cover);*/
 		$sth->execute();
-		$bdlocs = $sth->fetchAll();
-		/*debug($bdlocs);*/
+		$panier = $sth->fetch();
 
-		return $bdlocs;
-	} 
-	public function validate()
+		return $panier;
+	}  
 
+	public function createPanier($userId)
 	{
-		
-		$sql = "INSERT INTO panier  (id,nbre_article,title,date_location)
-		value (:id,1,:title;NOW())"; 
-		
+		$sql = "INSERT INTO panier (id, userId, date_created, date_modified)
+				VALUES (NULL, $userId, NOW(), NOW())";
 		$sth = $this->dbh->prepare($sql);
-		$sth->bindValue(":id", $id);
-		$sth->bindValue(":title", $title);
-		
 		$sth->execute();
-		$validate = $sth->fetchAll();
-		/*debug($bdlocs);*/
 
-		return $validate;
-	} 
-	public function find($id){
-		debug($bdloc);
-	echo $bdloc['id'];
-
-	/*$this->find($bdloc['id']);*/	 
+		return $this->dbh->lastInsertId();
 	}
 
 	public function modale($id)
@@ -73,7 +58,8 @@ class PanierManager extends \W\Manager\Manager
 		books.cover,
 		illu.lastName AS illuLastName,
 		scena.lastName AS scenaLastName,
-		color.lastName AS colorLastName	
+		color.lastName AS colorLastName
+		
 		FROM books 
 		LEFT JOIN authors AS illu
 		ON books.illustrator = illu.id

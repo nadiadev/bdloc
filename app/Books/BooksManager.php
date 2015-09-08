@@ -64,7 +64,10 @@ class BooksManager extends \W\Manager\Manager
 		books.cover,
 		illu.lastName AS illuLastName,
 		scena.lastName AS scenaLastName,
-		color.lastName AS colorLastName	
+		color.lastName AS colorLastName,
+		illu.birthDate AS illuBirthDate,
+		illu.deathDate AS illuDeathDate,
+		illu.country AS illuCountry		
 		FROM books 
 		LEFT JOIN authors AS illu
 		ON books.illustrator = illu.id
@@ -78,7 +81,7 @@ class BooksManager extends \W\Manager\Manager
 		$sth->bindValue(":id", $id);
 		$sth->execute();
 		$book = $sth->fetch();
-
+		
 		return $book; 
 
 

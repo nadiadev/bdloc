@@ -34,12 +34,13 @@ class UserController extends Controller
 				$userId = $result;
 
 					// récuper l'utilisateur
-				$UserManager = new \Manager\UserManager();
-				$user = $UserManager->find($userId);
+				$userManager = new \Manager\UserManager();
+				$user = $userManager->find($userId);
 				
-					// connexion l'user
+					// connexion l'user***********************************************
+				
 				$am->logUserIn($user);
-
+				$user = $this->getUser();
 					// redirection
 			
 	

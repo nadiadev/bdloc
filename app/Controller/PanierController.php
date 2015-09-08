@@ -29,22 +29,6 @@ class PanierController extends Controller
 
 		$this->show('temps\panier',['bdlocs'=>$bdlocs]);
 	}
-	public function confValidate()
-	{
-		$panierManager = new \Manager\PanierManager();
-		$bdlocs= $panierManager->confValidate();
-
-
-		$this->show('temps\panier',['bdlocs'=>$bdlocs]);
-	}
-	// public function find()
-	// {
-	// 	$booksManager = new \Books\BooksManager();
-	// 	$books= $booksManager->find();
-
-
-	// 	$this->show('temps\details',['books'=>$books]);
-	// }
 
 	public function modale()
 	{
@@ -55,4 +39,66 @@ class PanierController extends Controller
 
 		$this->show('temps\modale',['book'=>$book]);
 	}
+	public function validate(){
+
+		$id = $_GET['id'];
+
+		// chercher l'id de l'utilisateur
+		$user = $this->getUser();
+		$userId = $user['id'];
+
+		// chercher l'id du panier de cet utilisateur
+		$panierManager = new \Manager\PanierManager();
+		$panier = $panierManager->confValidate($userId);
+
+		// si pas de panier, le créer
+		if(empty($panier)){
+			$panierId = $panierManager->createPanier($userId);
+		}
+		else{
+			$panierId = $panier['id'];
+		}
+
+		$data = array(
+				'panierId'  => $panierId,
+				'bdId'		=> $id,
+			);
+
+		$panierBDManager = new \Manager\PanierBDManager();
+		$panierBDManager->insert($data);
+	}
+
+	public function showPanier(){
+
+		// chercher l'id de l'utilisateur
+		$user = $this->getUser();
+		$userId = $user['id'];
+
+		// chercher l'id du panier de cet utilisateur
+		$panierManager = new \Manager\PanierManager();
+		$panier = $panierManager->confValidate($userId);
+
+		// si pas de panier, alors pas de bds
+		$books = [];
+		if(!empty($panier)){
+			$panierId = $panier['id'];
+			$panierBDManager = new \Manager\PanierBDManager();
+			$bdIds = $panierBDManager->findBooksIdInPanier($panierId);
+
+			// Aller chercher les bds		
+			if(!empty($bdIds)){
+				$bdManager = new \Manager\BdManager();
+				$paniers = $bdManager->findBds($bdIds);
+			}
+		}
+
+
+		$data = array(
+				'paniers'  	=> $paniers,
+				'id'		=> $panierId,
+			);
+
+		$this->show('/temps/panier', $data);
+	}
+
 }
