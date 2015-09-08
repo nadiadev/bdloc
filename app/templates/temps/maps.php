@@ -1,32 +1,28 @@
-<?php $this->layout('layout', ['title' => 'Details']) ?>
+<?php $this->layout('layout', ['title' => 'Map']) ?>
    
 <?php $this->start('main_content') ?>
-<!DOCTYPE html>
-<!-- <html> -->
-  <!-- <head> -->
-    <style type="text/css">
-      html, body { height: 100%; margin: 0; padding: 0; }
-      #map { height: 100%; }
-    </style>
-  <!-- </head> -->
-  <!-- <body> -->
-    <div id="map"></div>
-    <script type="text/javascript">
+<div id="map"></div>
 
-// var map;
+      <!-- <!DOCTYPE html> -->
+        <!--html>
+        <head> -->
 
-// function initMap() {
-//   map = new google.maps.Map(document.getElementById('map'), {
-//     center: {lat: 48.8534275, lng: 2.3582787999999937},
-//     zoom: 13
-//   }); 
-/*Debut de la modif*/
+      <!--style type="text/css">
+          html, body { height: 100%; margin: 0; padding: 0; }
+          #map { height: 900px; }
+      </style-->
+      
+<!--/**** Debut de la modif ****/ -->
+
+<script type="text/javascript">
+
  var marker;
 
 function initMap() {
+ var position = new google.maps.LatLng(48.8534275,2.3582787999999937);
    var map = new google.maps.Map(document.getElementById('map'), {
      zoom: 13,
-     center: {lat: 48.8534275, lng: 2.3582787999999937}
+     center: position   //:{lat: 48.8534275, lng: 2.3582787999999937}
    });
 
    /*************** Tour Eiffel ****************************/
@@ -34,7 +30,7 @@ function initMap() {
      map: map,
      draggable: true,
      animation: google.maps.Animation.DROP,
-     position: {lat: 48.85837009999999, lng:  2.2944813000000295}
+     position: {lat: 48.85837009999999, lng: 2.2944813000000295}
    });
    marker.addListener('click', toggleBounce); 
 
@@ -42,7 +38,7 @@ function initMap() {
 
    marker = new google.maps.Marker({
      map: map,
-     title: "Cordonnerie Serrurerie Grenelle - 165 rue de Grenelle Paris 75007",
+     title: "Cordonnerie Serrurerie Grenelle \n 165 rue de Grenelle \n 75007 Paris ",
      draggable: true,
      animation: google.maps.Animation.DROP,
      position: {lat:  48.8575684, lng:    2.305731299999934}
@@ -51,7 +47,7 @@ function initMap() {
 
    marker = new google.maps.Marker({
      map: map,
-     title: "f",
+     title: "Aux Fleurs du Bac \n 69 Rue du bac \n 75007 Paris",
      draggable: true,
      animation: google.maps.Animation.DROP,
      position: {lat:  48.8542002, lng:    2.3235780999999633}
@@ -60,7 +56,7 @@ function initMap() {
 
    marker = new google.maps.Marker({
      map: map,
-     title: "e",
+     title: "Game Cash / CG Paris 5 \n 21 Rue Monge \n 75005 Paris",
      draggable: true,
      animation: google.maps.Animation.DROP,
      position: {lat:  48.8475683, lng:   2.351138600000013}
@@ -69,7 +65,7 @@ function initMap() {
 
    marker = new google.maps.Marker({
      map: map,
-     title: "d",
+     title: "BM Pressing \n 4Bis Bd Morland \n 75004 Paris",
      draggable: true,
      animation: google.maps.Animation.DROP,
      position: {lat:  48.8479797, lng:  2.3652867000000697}
@@ -78,7 +74,7 @@ function initMap() {
 
    marker = new google.maps.Marker({
      map: map,
-     title: "c",
+     title: "Hypso Reprographie \n 53 Rue Montmorency \n 75003 Paris",
      draggable: true,
      animation: google.maps.Animation.DROP,
      position: {lat: 48.86368539999999, lng:  2.3527358999999706}
@@ -87,7 +83,7 @@ function initMap() {
 
    marker = new google.maps.Marker({
      map: map,
-     title: "b",
+     title: "Telecom Star \n 15 Bd de Bonne Nouvelle \n 75002 Paris",
      draggable: true,
      animation: google.maps.Animation.DROP,
      position: {lat: 48.8698981, lng:  2.3502657999999883}
@@ -96,7 +92,7 @@ function initMap() {
 
    marker = new google.maps.Marker({
      map: map,
-     title: "a",
+     title: "LIBRIA \n 82 Passge Choiseul \n 75002 Paris",
      draggable: true,
      animation: google.maps.Animation.DROP,
      position: {lat: 48.8685692, lng:  2.3356083999999555}
@@ -112,11 +108,14 @@ function toggleBounce() {
      marker.setAnimation(google.maps.Animation.BOUNCE);
    }
 }
-  
-    </script>
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBBPUXgtFypy3PCY6HB-gUoZj4klGUzO8&callback=initMap">
-    </script>
- <!--  </body>
-</html> -->
+  $(window).on('load',initMap);
+  </script>
+
+
+   <!-- // <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBBPUXgtFypy3PCY6HB-gUoZj4klGUzO8&callback=initMap"></script>  -->
+
+       
+  <!--/body-->
+  <!--/html-->
+
 <?php $this->stop('main_content') ?>

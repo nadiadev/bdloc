@@ -1,0 +1,14 @@
+/**** Debut du css maps  ***/
+html, body{ 
+	height: 100%;
+	margin: 0; 
+	padding: 0; 
+}
+
+#map{ 
+  	height: 850px; 
+  	width: 980px;
+  	margin: auto;
+}
+
+/*** Fin du css maps ***/
