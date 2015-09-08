@@ -1,5 +1,5 @@
 <?php
-namespace Manager;
+namespace Manager; 
 
 
 class PanierManager extends \W\Manager\Manager
@@ -12,14 +12,51 @@ class PanierManager extends \W\Manager\Manager
 		$sql = "SELECT  id,title,cover
 		FROM books 
 		"; 
-		// 
+		
 		$sth = $this->dbh->prepare($sql);
-		/*$sth->bindValue(":recherche", '%'.$recherche.'%');*/
+		/*$sth->bindValue(":id", $id);
+		$sth->bindValue(":title", $title);
+		$sth->bindValue(":cover", $cover);*/
 		$sth->execute();
-		$bdloc = $sth->fetchAll();
-		/*debug($bdloc);*/
+		$bdlocs = $sth->fetchAll();
+		/*debug($bdlocs);*/
 
-		return $bdloc;
+		return $bdlocs;
+	} 
+	public function confValidate()
+
+	{
+		
+		$sql = "SELECT  id,title,nbre_article
+		FROM panier 
+		"; 
+		
+		$sth = $this->dbh->prepare($sql);
+		/*$sth->bindValue(":id", $id);
+		$sth->bindValue(":title", $title);
+		$sth->bindValue(":cover", $cover);*/
+		$sth->execute();
+		$bdlocs = $sth->fetchAll();
+		/*debug($bdlocs);*/
+
+		return $bdlocs;
+	} 
+	public function validate()
+
+	{
+		
+		$sql = "INSERT INTO panier  (id,nbre_article,title,date_location)
+		value (:id,1,:title;NOW())"; 
+		
+		$sth = $this->dbh->prepare($sql);
+		$sth->bindValue(":id", $id);
+		$sth->bindValue(":title", $title);
+		
+		$sth->execute();
+		$validate = $sth->fetchAll();
+		/*debug($bdlocs);*/
+
+		return $validate;
 	} 
 	public function find($id){
 		debug($bdloc);
@@ -53,7 +90,7 @@ class PanierManager extends \W\Manager\Manager
 
 		return $book; 
 
-
+/*
 		$sql = "SELECT  style
 		FROM series 
 		LEFT JOIN books
@@ -64,7 +101,7 @@ class PanierManager extends \W\Manager\Manager
 		$sth->execute();
 		$series = $sth->fetch();
 		debug($series);
-		return $series; 
+		return $series; */
 	}	
 
 

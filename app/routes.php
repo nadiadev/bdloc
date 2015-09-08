@@ -8,6 +8,10 @@
 		['GET', '/temps/details/', 'Books#find', 'details'],
 		['GET','/modale/details/', 'Books#modale', 'modale'],
 		['GET|POST','/temps/panier/','Panier#filtre','panier'],
+<<<<<<< HEAD
 		['GET|POST','/temps/maps/','Maps#geol','maps'],
+=======
+		['GET|POST','/temps/confirmation/','Panier#confValidate','confirmation'],
+>>>>>>> origin/master
 		
 	);
