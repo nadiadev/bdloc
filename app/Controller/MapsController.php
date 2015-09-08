@@ -1,50 +1,26 @@
 <?php
+
 namespace Controller;
 use \W\Manager\ConnectionManager;
 use \W\Controller\Controller;
-class BooksController extends Controller
+
+class MapsController extends Controller
 {
 	public function home()
 	{
 		
-		$bdManager = new \Manager\BdManager();
-		$bd = $bdManager->getRandomBd();
-		print_r($bd);
-		$this->show('temps\catalogue');
+	// 	$bdManager = new \Manager\BdManager();
+	// 	$bd = $bdManager->getRandomBd();
+	// 	print_r($bd);
+	// 	$this->show('temps\catalogue');
 	}
-	public function showDefault()
+
+	public function geol()
 	{
-		$booksManager = new \Books\BooksManager();
-		$books= $booksManager->showDefault();
+		// $mapsManager = new \Manager\MapsManager();
+		// $maps= $mapsManager->geol();
 
-
-		$this->show('temps\maps',['google'=>$google]);
+		$this->show('temps\maps');
 	}
-	
-	// public function filtre()
-	// {
-	// 	$booksManager = new \Books\BooksManager();
-	// 	$books= $booksManager->filtre();
 
-
-	// 	$this->show('temps\catalogue',['books'=>$books]);
-	// }
-	// // public function find()
-	// // {
-	// // 	$booksManager = new \Books\BooksManager();
-	// // 	$books= $booksManager->find();
-
-
-	// // 	$this->show('temps\details',['books'=>$books]);
-	// // }
-
-	// public function modale()
-	// {
-	// 	$id = $_GET['id'];
-
-	// 	$booksManager = new \Books\BooksManager();
-	// 	$book= $booksManager->modale($id);
-
-	// 	$this->show('temps\modale',['book'=>$book]);
-	// }
 }
