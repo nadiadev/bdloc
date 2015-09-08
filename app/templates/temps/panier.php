@@ -20,7 +20,10 @@
 
 <hr /> 
 <div class="box">
-	<?php foreach($paniers as $panier){  ?>
+	<?php if(!empty($paniers)){
+
+
+	 foreach($paniers as $panier){  ?>
 	<div class="affiche" data-id="<?= $panier['panierId'] ?>">
 		<div class="image"><img src="<?php echo $this->assetUrl('thumbnails_cover/'.$panier['cover']) ?>" /></div> 
 		<div class="text"><br /><br /><p><?php echo "Panier id : ".$panier['panierId']."</br> bd id:". $panier['bdId'] ?></p></div>
@@ -28,7 +31,11 @@
 		<!-- <button class="details">Valider le panier</button>-->
 		
 	</div>
+
 	<?php
+	}
+} else{
+	echo "OUPS votre panier est vide";
 }
 ?>
 </div>

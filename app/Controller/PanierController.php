@@ -74,6 +74,10 @@ class PanierController extends Controller
 		$user = $this->getUser();
 		$userId = $user['id'];
 
+		$paniers = "";
+		$panierId = "";
+		
+
 		// chercher l'id du panier de cet utilisateur
 		$panierManager = new \Manager\PanierManager();
 		$panier = $panierManager->confValidate($userId);
@@ -91,8 +95,6 @@ class PanierController extends Controller
 				$paniers = $bdManager->findBds($bdIds);
 			}
 		}
-
-
 		$data = array(
 				'paniers'  	=> $paniers,
 				'id'		=> $panierId,
