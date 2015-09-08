@@ -58,12 +58,12 @@ if (!empty($_GET['start'])){
 <div class="filtres">
 	<h5>Catégories</h5><br />
 	<form action="">
-		<input type="checkbox" name="disponible" value="disponible"> Polar<br>
-		<input type="checkbox" name="disponible" value="disponible"> Historique<br>
-		<input type="checkbox" name="disponible" value="disponible"> Tranche de vie<br>
-		<input type="checkbox" name="disponible" value="disponible"> Aventure<br>
-		<input type="checkbox" name="disponible" value="disponible"> Jeunesse<br>
-		<input type="checkbox" name="disponible" value="disponible"> Fantastique<br>
+		<input type="checkbox" name="polar" value="polar"> Polar<br>
+		<input type="checkbox" name="historique" value="historique"> Historique<br>
+		<input type="checkbox" name="tranche" value="tranche"> Tranche de vie<br>
+		<input type="checkbox" name="aventure" value="aventure"> Aventure<br>
+		<input type="checkbox" name="jeunesse" value="jeunesse"> Jeunesse<br>
+		<input type="checkbox" name="fantastique" value="fantastique"> Fantastique<br>
 		<br />
 		<h5>Disponibilité</h5><br />
 		<input type="checkbox" name="disponible" value="disponible"> disponible<br>
@@ -72,7 +72,7 @@ if (!empty($_GET['start'])){
 	</form>
 	<br />
 
-	<form method="GET" action="">
+	<form method="GET">
 		<label>Recherche</label><br />
 		<input type="text" name="recherche">
 

@@ -5,10 +5,11 @@
 <nav>
 	<ul>
 		<li><h4>Bdloc</h4></li>
-		<li><a href="" >Les bd</a></li>
+		<li><a href="<?php echo $this->url('catalogue');?>" >Les bd</a></li>
 		<li><a href="" >Mon panier</a></li>
 		<li><a href="" >Mon compte</a></li>
-		<li><a href="<?php echo $this->url('catalogue');?>">Retour catalogue</a></li>
+		<!-- <li><a href="">Retour catalogue</a></li> -->
+		<li><a href="<?php echo $this->url('maps');?>">Point Relais</a></li>
 	</ul>
 	<div class="bonjour">
 		Bonjour : <?php  echo $w_user['username'];?><br />

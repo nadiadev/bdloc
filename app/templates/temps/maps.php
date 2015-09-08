@@ -1,8 +1,8 @@
-<?php $this->layout('layout', ['title' => 'Map']) ?>
+<?php $this->layout('layout', ['title' => 'Les Point Relais']) ?>
    
-<?php $this->start('main_content') ?>
+<?php $this->start('main_content') ?></br>
+<a href="<?php echo $this->url('catalogue');?>" >Les bd</a>
 <div id="map"></div>
-
       <!-- <!DOCTYPE html> -->
         <!--html>
         <head> -->
