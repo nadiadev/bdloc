@@ -94,7 +94,7 @@ function initMap() {
      map: map,
      title: "LIBRIA \n 82 Passge Choiseul \n 75002 Paris",
      draggable: true,
-     animation: google.maps.Animation.DROP,
+    animation: google.maps.Animation.DROP,
      position: {lat: 48.8685692, lng:  2.3356083999999555}
    });
    marker.addListener('click', toggleBounce);
@@ -105,7 +105,7 @@ function toggleBounce() {
    if (marker.getAnimation() !== null) {
      marker.setAnimation(null);
    } else {
-     marker.setAnimation(google.maps.Animation.BOUNCE);
+     // marker.setAnimation(google.maps.Animation.BOUNCE);
    }
 }
   $(window).on('load',initMap);
