@@ -34,7 +34,7 @@ class BooksManager extends \W\Manager\Manager
 		LEFT JOIN authors AS scena
 		ON books.illustrator = scena.id
 		LEFT JOIN authors AS color
-		ON books.illustrator = color.id
+		ON books.illustrator = color.id 
 		WHERE books.title LIKE :recherche 
 		OR illu.lastName LIKE :recherche
 		OR scena.lastName LIKE :recherche
@@ -67,7 +67,8 @@ class BooksManager extends \W\Manager\Manager
 		color.lastName AS colorLastName,
 		illu.birthDate AS illuBirthDate,
 		illu.deathDate AS illuDeathDate,
-		illu.country AS illuCountry		
+		illu.country AS illuCountry
+			
 		FROM books 
 		LEFT JOIN authors AS illu
 		ON books.illustrator = illu.id
@@ -75,6 +76,7 @@ class BooksManager extends \W\Manager\Manager
 		ON books.illustrator = scena.id
 		LEFT JOIN authors AS color
 		ON books.illustrator = color.id
+		
 		WHERE books.id = :id ";
 
 		$sth = $this->dbh->prepare($sql);
@@ -99,13 +101,20 @@ class BooksManager extends \W\Manager\Manager
 	}	
 
 	// Categories
-	public function categorieAvent(){
-echo "debut de procedure bookmanager";
-		// if (!empty ($_GET['aventures'])){
+	public function categorieAvent($categories){
+		
+		$categoriesSql = "";
 
-		// 	$aventures = $_GET['aventures'];
-		// }
-		// {
+		if(!empty($categories)){
+			$numberCat = count($categories);
+			$categoriesSql .= "WHERE avent.style LIKE '%" . $categories[0] . "%'";
+			if($numberCat > 1){
+				for($index = 1; $index < $numberCat; $index++){
+					$categoriesSql .= " OR avent.style LIKE '%" . $categories[$index] . "%'";
+				}
+			}
+		}
+
 		$sql = "SELECT   
 		books.id,
 		books.title,
@@ -123,19 +132,16 @@ echo "debut de procedure bookmanager";
 		LEFT JOIN authors AS color
 		ON books.illustrator = color.id
 		LEFT JOIN series AS avent
-		ON  avent.style = Aventure                                             
-		WHERE books.id LIKE :id 
-		OR avent.style LIKE Aventure";
+		ON books.serieId = avent.id
+		" . $categoriesSql;
 
 		$sth = $this->dbh->prepare($sql);
-		$sth->bindValue(":id", $id);
 		$sth->execute();
 
-		debug($aventures);
-		$aventures = $sth->fetchAll();
+		$books = $sth->fetchAll();
 		
 
-		return $aventures; 
+		return $books; 
 
 	}
 	// else{

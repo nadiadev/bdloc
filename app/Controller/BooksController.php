@@ -24,10 +24,17 @@ class BooksController extends Controller
 	public function filtre()
 	{
 		$booksManager = new \Books\BooksManager();
-		$books= $booksManager->filtre();
 
-
-		$this->show('temps\catalogue',['books'=>$books]);
+		if(!empty($_GET['categories'])){
+			$categories = $_GET['categories'];
+			$books = $booksManager->categorieAvent($categories);
+		}
+		else{
+			$books= $booksManager->filtre();
+			$categories = array();
+		}
+		
+		$this->show('temps\catalogue',['books'=>$books, 'categories' => $categories]);
 	}
 	// public function find()
 	// {
@@ -49,16 +56,4 @@ class BooksController extends Controller
 
 	}
 
-	public function categorieAvent(){
-		$aventures = "";
-		$avent = "";
-		$avent = $_GET['avent'];
-		$booksManager = new \Books\BooksManager();
-		$aventures= $booksManager->aventures($style);
-
-		debug($id);
-		
-		$this->show('temps\catalogue',['avent'=>$avent]);
-
-	}
 }

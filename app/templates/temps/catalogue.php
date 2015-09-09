@@ -9,8 +9,8 @@ if (!empty($_GET['start'])){
 	$start = $_GET['start'];
 
 }
- ?>
- <style>
+?>
+<style>
 #showDetails{
 	
 	width:50%;
@@ -34,8 +34,15 @@ if (!empty($_GET['start'])){
 	
 	background-color: black;
 }
+h5{
+	font-variant: small-caps;
+}
+#dispoValid{
+	font-weight: 700;
 
- </style>
+}
+
+</style>
 <nav>
 	<ul>
 		<li><h4>Bdloc</h4></li>
@@ -57,24 +64,18 @@ if (!empty($_GET['start'])){
 
 <div class="filtres">
 	<h5>Catégories</h5><br />
-	<form method="GET">
-		<input type="checkbox" name="polar" value="polar"> Polar<br />
-		<input type="checkbox" name="historique" value="historique"> Historique<br />
-		<input type="checkbox" name="tranche" value="tranche"> Tranche de vie<br />
-		<input type="checkbox" name="aventures" value="aventures"> Aventures<br />
-		<input type="checkbox" name="jeunesse" value="jeunesse"> Jeunesse<br />
-		<input type="checkbox" name="fantastique" value="fantastique"> Fantastique<br />
-		<input type="submit" value="Valider">
-		<br />
+	<form method="GET" action="<?php echo $this->url('catalogue')?>">
+		<input type="checkbox" name="categories[]" value="polar" <?php if(in_array('polar', $categories)){ echo 'checked'; } ?>> Polar<br />
+		<input type="checkbox" name="categories[]" value="historique" <?php if(in_array('historique', $categories)){ echo 'checked'; } ?>> Historique<br />
+		<input type="checkbox" name="categories[]" value="tranche" <?php if(in_array('tranche', $categories)){ echo 'checked'; } ?>> Tranche de vie<br />
+		<input type="checkbox" name="categories[]" value="aventure" <?php if(in_array('aventure', $categories)){ echo 'checked'; } ?>> Aventure<br />
+		<input type="checkbox" name="categories[]" value="jeunesse" <?php if(in_array('jeunesse', $categories)){ echo 'checked'; } ?>> Jeunesse<br />
+		<input type="checkbox" name="categories[]" value="fantastique" <?php if(in_array('fantastique', $categories)){ echo 'checked'; } ?>> Fantastique<br /><br />
+		<h5>Disponibilité</h5>
+		<input type="checkbox" name="disponible[]" value="disponible" checked>disponible<br />
+		<input type="submit" id="dispoValid" value="Valider">
+		<br /><br />
 	</form>
-		
-	<form>	
-		<h5>Disponibilité</h5><br />
-		<input type="checkbox" name="disponible" value="disponible"> disponible<br />
-		<input type="checkbox" name="indisponible" value="indisponible" checked>indisponible<br />
-		<input type="submit" value="Valider">
-	</form>
-	<br />
 
 	<form method="GET">
 		<label>Recherche</label><br />
@@ -82,7 +83,7 @@ if (!empty($_GET['start'])){
 
 
 
-		<input type="submit" value="OK" />
+		<input type="submit" value="OK" /> 
 	</form>
 </div>
 
@@ -113,12 +114,6 @@ if (!empty($_GET['start'])){
 	
 </div>
 
-
-
-<div class="text" data-id="<?= $this->aventures['avent']; ?> "><br /><br />
-	<p><?= $this->aventures['avent']; ?></p>
-</div>
-
 <div class="box" data-modale-path="<?= $this->url('modale'); ?>">
 	<?php foreach($books as $book){ ?>
 	<div class="affiche" data-id="<?= $book['id']; 	?>">
@@ -134,10 +129,10 @@ if (!empty($_GET['start'])){
 
 <div id="showDetails">
 	<div>
-<!-- <a href="#close" title="close" class="close">retour</a> -->
-<script type="text/javascript" src="<?= $this->assetUrl('js/catalog.js'); ?>"></script>
+		<!-- <a href="#close" title="close" class="close">retour</a> -->
+		<script type="text/javascript" src="<?= $this->assetUrl('js/catalog.js'); ?>"></script>
 
-</div>
+	</div>
 
 </div>
 
