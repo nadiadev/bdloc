@@ -46,5 +46,19 @@ class BooksController extends Controller
 		$book= $booksManager->modale($id);
 
 		$this->show('temps\modale',['book'=>$book]);
+
+	}
+
+	public function categorieAvent(){
+		$aventures = "";
+		$avent = "";
+		$avent = $_GET['avent'];
+		$booksManager = new \Books\BooksManager();
+		$aventures= $booksManager->aventures($style);
+
+		debug($id);
+		
+		$this->show('temps\catalogue',['avent'=>$avent]);
+
 	}
 }

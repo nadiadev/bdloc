@@ -99,14 +99,21 @@ class BooksManager extends \W\Manager\Manager
 	}	
 
 	// Categories
-	public function categorie_avent($aventure){
-		$sql = "SELECT  
+	public function categorieAvent(){
+echo "debut de procedure bookmanager";
+		// if (!empty ($_GET['aventures'])){
+
+		// 	$aventures = $_GET['aventures'];
+		// }
+		// {
+		$sql = "SELECT   
 		books.id,
 		books.title,
 		books.cover,
-		illu.lastName AS illuLastName,
+		illu.lastName AS illuLastName, 
 		scena.lastName AS scenaLastName,
-		color.lastName AS colorLastName,
+		color.lastName AS colorLastName, 
+		avent.style AS aventStyle
 		
 		FROM books 
 		LEFT JOIN authors AS illu
@@ -116,19 +123,27 @@ class BooksManager extends \W\Manager\Manager
 		LEFT JOIN authors AS color
 		ON books.illustrator = color.id
 		LEFT JOIN series AS avent
-		ON 
-		WHERE books.id = :id ";
+		ON  avent.style = Aventure                                             
+		WHERE books.id LIKE :id 
+		OR avent.style LIKE Aventure";
 
 		$sth = $this->dbh->prepare($sql);
 		$sth->bindValue(":id", $id);
 		$sth->execute();
-		$book = $sth->fetch();
+
+		debug($aventures);
+		$aventures = $sth->fetchAll();
 		
-		return $book; 
+
+		return $aventures; 
 
 	}
+	// else{
+	// 	echo "string";
+	// }
 
-
+	// }
+	// echo "fin de procedure bookmanager";
 	
 
 }

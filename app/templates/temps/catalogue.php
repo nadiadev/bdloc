@@ -57,17 +57,21 @@ if (!empty($_GET['start'])){
 
 <div class="filtres">
 	<h5>Catégories</h5><br />
-	<form action="">
-		<input type="checkbox" name="polar" value="polar"> Polar<br>
-		<input type="checkbox" name="historique" value="historique"> Historique<br>
-		<input type="checkbox" name="tranche" value="tranche"> Tranche de vie<br>
-		<input type="checkbox" name="aventure" value="aventure"> Aventure<br>
-		<input type="checkbox" name="jeunesse" value="jeunesse"> Jeunesse<br>
-		<input type="checkbox" name="fantastique" value="fantastique"> Fantastique<br>
+	<form method="GET">
+		<input type="checkbox" name="polar" value="polar"> Polar<br />
+		<input type="checkbox" name="historique" value="historique"> Historique<br />
+		<input type="checkbox" name="tranche" value="tranche"> Tranche de vie<br />
+		<input type="checkbox" name="aventures" value="aventures"> Aventures<br />
+		<input type="checkbox" name="jeunesse" value="jeunesse"> Jeunesse<br />
+		<input type="checkbox" name="fantastique" value="fantastique"> Fantastique<br />
+		<input type="submit" value="Valider">
 		<br />
+	</form>
+		
+	<form>	
 		<h5>Disponibilité</h5><br />
-		<input type="checkbox" name="disponible" value="disponible"> disponible<br>
-		<input type="checkbox" name="indisponible" value="indisponible" checked>indisponible<br>
+		<input type="checkbox" name="disponible" value="disponible"> disponible<br />
+		<input type="checkbox" name="indisponible" value="indisponible" checked>indisponible<br />
 		<input type="submit" value="Valider">
 	</form>
 	<br />
@@ -111,7 +115,9 @@ if (!empty($_GET['start'])){
 
 
 
-
+<div class="text" data-id="<?= $this->aventures['avent']; ?> "><br /><br />
+	<p><?= $this->aventures['avent']; ?></p>
+</div>
 
 <div class="box" data-modale-path="<?= $this->url('modale'); ?>">
 	<?php foreach($books as $book){ ?>
