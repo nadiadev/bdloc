@@ -62,6 +62,7 @@ class BooksManager extends \W\Manager\Manager
 		books.id,
 		books.title,
 		books.cover,
+		books.stock,
 		illu.lastName AS illuLastName,
 		scena.lastName AS scenaLastName,
 		color.lastName AS colorLastName,
@@ -101,7 +102,7 @@ class BooksManager extends \W\Manager\Manager
 	}	
 
 	// Categories
-	public function categorieAvent($categories,$disponible){
+	public function categorieAvent($categories){
 		
 		$categoriesSql = "";
 
@@ -112,8 +113,6 @@ class BooksManager extends \W\Manager\Manager
 				for($index = 1; $index < $numberCat; $index++){
 					$categoriesSql .= " OR avent.style LIKE '%" . $categories[$index] . "%'";
 				}
-			}else if ($books['stock'] == 0){
-				$disponible = "Exemplaire temporairement indisponible";
 			}
 		}
 
@@ -154,6 +153,72 @@ class BooksManager extends \W\Manager\Manager
 
 	// }
 	// echo "fin de procedure bookmanager";
+
+	public function getBooksByFilters($categories, $disponible)
+	{
+
+		$categoriesSql = "";
+
+		if(!empty($categories)){
+			$underCategoriesSql = " WHERE style LIKE '%" . $categories[0] . "%'";
+
+			$numberCat = count($categories);
+
+			if($numberCat > 1){
+				for($index = 1; $index < $numberCat; $index++){
+					$underCategoriesSql .= " OR style LIKE '%" . $categories[$index] . "%'";
+				}
+			}
+
+			$categoriesSql .= " AND books.id IN (
+													SELECT id
+													FROM books
+													WHERE serieId IN(
+																		SELECT id
+																		FROM series" . $underCategoriesSql . "
+																	)
+												)";
+		}
+
+		$disponibleSql = "";
+
+		if(!empty($disponible)){
+			$disponibleSql = " AND books.stock > 0";
+		}
+
+		$sql = "SELECT   
+				books.id,
+				books.title,
+				books.cover,
+				books.stock,
+				illu.lastName AS illuLastName, 
+				scena.lastName AS scenaLastName,
+				color.lastName AS colorLastName, 
+				avent.style AS aventStyle
+				
+				FROM books 
+				LEFT JOIN authors AS illu
+				ON books.illustrator = illu.id
+				LEFT JOIN authors AS scena
+				ON books.illustrator = scena.id
+				LEFT JOIN authors AS color
+				ON books.illustrator = color.id
+				LEFT JOIN series AS avent
+				ON books.serieId = avent.id
+				WHERE books.id >= 0" 
+				. $categoriesSql
+				. $disponibleSql;
+
+		$sth = $this->dbh->prepare($sql);
+		$sth->execute();
+
+		$books = $sth->fetchAll();
+		/*debug($books);
+		die();*/
+
+		return $books; 
+
+	}
 	
 
 }

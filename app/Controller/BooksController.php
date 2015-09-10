@@ -25,14 +25,20 @@ class BooksController extends Controller
 	{
 		$booksManager = new \Books\BooksManager();
 
-		if(!empty($_GET['categories'])){
-			$categories = $_GET['categories'];
-			$books = $booksManager->categorieAvent($categories,$disponible);
+		$categories = array();
+		$disponible = array();
+
+		if(empty($_GET)){
+			$books= $booksManager->filtre();
 		}
 		else{
-			$books= $booksManager->filtre();
-			$categories = array();
-			$disponible = array();
+			if(!empty($_GET['categories'])){
+				$categories = $_GET['categories'];
+			}
+			if(!empty($_GET['disponible'])){
+				$disponible = $_GET['disponible'];
+			}
+			$books = $booksManager->getBooksByFilters($categories,$disponible);
 		}
 		
 		$this->show('temps\catalogue',['books'=>$books, 'categories' => $categories, 'disponible' => $disponible]);
