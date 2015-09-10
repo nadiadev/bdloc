@@ -18,7 +18,7 @@ if (!empty($_GET['start'])){
 	margin-top: 10%;
 	margin-left:25%;
 	z-index: 9999;
-	position: absolute;
+	position: fixed;
 	background-color: #ccc;
 }
 #close{
