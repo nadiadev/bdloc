@@ -28,7 +28,7 @@ class BooksController extends Controller
 		$categories = array();
 		$disponible = array();
 
-		if(empty($_GET)){
+		if(empty($_GET) || !empty($_GET['recherche'])){
 			$books= $booksManager->filtre();
 		}
 		else{

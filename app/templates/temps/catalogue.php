@@ -80,9 +80,6 @@ h5{
 	<form method="GET">
 		<label>Recherche</label><br />
 		<input type="text" name="recherche">
-
-
-
 		<input type="submit" value="OK" /> 
 	</form>
 </div>

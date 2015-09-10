@@ -219,6 +219,8 @@ class BooksManager extends \W\Manager\Manager
 		return $books; 
 
 	}
-	
+	/*public function validateCart($id)
+	{
+		$sql = "UPDATE books SET stock = stock-1 WHERE :id = $id";*/
 
 }

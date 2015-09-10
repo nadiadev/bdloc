@@ -1,6 +1,13 @@
 <?php $this->layout('layout', ['title' => ' Panier BDLOC']) ?>
 
 <?php $this->start('main_content') ?>
+<style 
+validCart>input{
+	width:200px;
+	height:40px;
+}
+
+</style>
 <section>
 <nav>
 	<ul>
@@ -32,6 +39,8 @@
 		<!-- <button class="details">Valider le panier</button>-->
 		
 	</div>
+	
+	
 
 	<?php
 	}
@@ -40,7 +49,12 @@
 }
 ?>
 </div>
-
+<br /><br />
+<div id="validCart" class ="validCart" name="validCart">
+	<form method="GET">
+		<input type="submit" value="VALIDER LE PANIER" /> 
+	</form>
+	</div>
 </section>
 
  
