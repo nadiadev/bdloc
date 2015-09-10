@@ -72,7 +72,7 @@ h5{
 		<input type="checkbox" name="categories[]" value="jeunesse" <?php if(in_array('jeunesse', $categories)){ echo 'checked'; } ?>> Jeunesse<br />
 		<input type="checkbox" name="categories[]" value="fantastique" <?php if(in_array('fantastique', $categories)){ echo 'checked'; } ?>> Fantastique<br /><br />
 		<h5>Disponibilité</h5>
-		<input type="checkbox" name="disponible[]" value="disponible" checked>disponible<br />
+		<input type="checkbox" name="disponible[]" value="disponible" <?php if(in_array('disponible', $disponible)){ echo 'checked'; } ?>>disponible<br />
 		<input type="submit" id="dispoValid" value="Valider">
 		<br /><br />
 	</form>

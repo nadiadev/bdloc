@@ -27,14 +27,15 @@ class BooksController extends Controller
 
 		if(!empty($_GET['categories'])){
 			$categories = $_GET['categories'];
-			$books = $booksManager->categorieAvent($categories);
+			$books = $booksManager->categorieAvent($categories,$disponible);
 		}
 		else{
 			$books= $booksManager->filtre();
 			$categories = array();
+			$disponible = array();
 		}
 		
-		$this->show('temps\catalogue',['books'=>$books, 'categories' => $categories]);
+		$this->show('temps\catalogue',['books'=>$books, 'categories' => $categories, 'disponible' => $disponible]);
 	}
 	// public function find()
 	// {

@@ -101,7 +101,7 @@ class BooksManager extends \W\Manager\Manager
 	}	
 
 	// Categories
-	public function categorieAvent($categories){
+	public function categorieAvent($categories,$disponible){
 		
 		$categoriesSql = "";
 
@@ -112,6 +112,8 @@ class BooksManager extends \W\Manager\Manager
 				for($index = 1; $index < $numberCat; $index++){
 					$categoriesSql .= " OR avent.style LIKE '%" . $categories[$index] . "%'";
 				}
+			}else if ($books['stock'] == 0){
+				$disponible = "Exemplaire temporairement indisponible";
 			}
 		}
 
@@ -119,6 +121,7 @@ class BooksManager extends \W\Manager\Manager
 		books.id,
 		books.title,
 		books.cover,
+		books.stock,
 		illu.lastName AS illuLastName, 
 		scena.lastName AS scenaLastName,
 		color.lastName AS colorLastName, 
@@ -139,7 +142,8 @@ class BooksManager extends \W\Manager\Manager
 		$sth->execute();
 
 		$books = $sth->fetchAll();
-		
+		/*debug($books);
+		die();*/
 
 		return $books; 
 
