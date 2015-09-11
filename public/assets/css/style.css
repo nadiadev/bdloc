@@ -109,6 +109,7 @@ nav{
 
 a{
 text-decoration: none;
+
 /*border: solid 1px;
 padding-left:15px;	
 padding-right:15px;*/	
@@ -123,6 +124,7 @@ ul{
 }
 ul>li{
 	display:inline-block;
+	color: white;
 	width: 6em;
 	margin:0.6em;
 	margin-left: 2%;
@@ -132,9 +134,13 @@ ul>li{
 	border: solid 1px white;
 
 }
+ul>li>a{	
+	color: white;
+}
 
 .ps>a{
 	display:inline-block;
+	color: white;
 	width: 6em;
 	margin:0.6em;
 	background: rgba(255,204,0, 0.5);
