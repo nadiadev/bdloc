@@ -1,18 +1,19 @@
 <?php $this->layout('layout', ['title' => 'Se connecter']) ?>
 	
 	<?php $this->start('main_content') ?>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 	<!--link rel="stylesheet" type="text/css" href="<= $this->assetUrl('css/style.css')"-->
-		<h2>Connexion</h2>
+		<h2>Connexion</h2> <br />
 
-		<p> Veuillez renseigner les champs suivants </p>
-		<div class="forme">	
+		<div class="login">	
+		<p> Veuillez renseigner les champs suivants </p><br />
 			
 			<form method="POST" novalidate action="" >
 				<label>Username</label>
-				<input type="text" id='username' name='username'><br />	
+				<div><input type="text" id='username' name='username'></div>
 
 				<label>Mot de passe </label>
-				<input type="password" id='password' name='password'><br />
+				<div><input type="password" id='password' name='password'></div><br />
 
 				<input type="submit" name="Valider">
 				<!--input type="reset" name="reset"-->

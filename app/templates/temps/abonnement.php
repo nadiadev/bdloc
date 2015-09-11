@@ -1,19 +1,13 @@
 <?php $this->layout('layout', ['title' => 'Nouvel abonnement']) ?>
 	
 	<?php $this->start('main_content') ?>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
 	<!--link rel="stylesheet" type="text/css" href="<= $this->assetUrl('css/style.css')"-->
-	<style>
-	.abonnement{
-		
-	}
-	.forme{
-		margin-left: 10%;
-	}
-	</style>
-		<h2>Inscription</h2>
+	
+		<h2>Inscription</h2><br />
 
-		<p> Veuillez renseigner les champs suivants </p></br>
 		<div class="forme">	
+		<p> Veuillez renseigner les champs suivants </p><br />
 			<form method="POST" novalidate action="">
 				<label>Username</label>
 				<div class="abonnement"><input type="text" id='username' name='username'  ><?php if (!empty($errors['username'])){echo $errors['username'];}?></div><br />

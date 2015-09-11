@@ -19,7 +19,7 @@ if (!empty($_GET['start'])){
 	margin-left:25%;
 	z-index: 9999;
 	position: fixed;
-	background-color: #ccc;
+	background:rgba(255, 253, 231, 1);
 }
 #close{
 	border:solid 3px;
@@ -41,6 +41,7 @@ h5{
 	font-weight: 700;
 
 }
+
 
 </style>
 <nav>
@@ -105,7 +106,7 @@ h5{
 	</form>
 </div>
 
-<div method="GET">
+<div  method="GET" class="ps">
 	<a href="?start=<?= $start-20 ?>">Précédent</a>
 	<a href="?start=<?= $start+20 ?>">Suivant</a>
 	
