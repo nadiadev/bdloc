@@ -50,18 +50,15 @@ h5{
 		<li><a href="" >Les bd</a></li>
 		<li><a href="<?php echo $this->url('panierShow');?>" >Mon panier</a></li>
 		<li><a href="" >Mon compte</a></li>
-
+		<li><a href="<?php echo $this->url('home');?>">deconnexion</a></li>
+	
+		<div class="bonjour">
+			Bonjour :  <?php  echo $w_user['username'];?>
+		</div>
 	</ul>
-	<div class="bonjour">
-		Bonjour :  <?php  echo $w_user['username'];?><br />
-		<br />
-		<a href="<?php echo $this->url('home');?>">deconnexion</a>
-	</div>
-
 </nav>
 
 <hr />
-
 
 <div class="filtres">
 	<h5>Catégories</h5><br />

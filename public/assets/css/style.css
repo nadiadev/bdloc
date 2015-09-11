@@ -198,8 +198,17 @@ width:23%;
 	
 }
 .bonjour{
-	width:10%;
+	width:30%;
+	font-size: 1.5em;
+	color: white;
 	float:right;
+	/*margin-right: 160%;*/
+	display:inline-block;
+	margin:0.6em;
+	/*margin-top: 0.2em;*/
+	margin-left: 10%;
+	background: rgba(255,204,0, 0.5);
+	padding: 0.2em;
 }
 
 .abonnement>input{
