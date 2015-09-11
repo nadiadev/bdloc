@@ -10,10 +10,10 @@
 			
 			<form method="POST" novalidate action="" >
 				<label>Username</label>
-				<div><input type="text" id='username' name='username'></div>
+				<div class="lg"><input type="text" id='username' name='username'></div>
 
 				<label>Mot de passe </label>
-				<div><input type="password" id='password' name='password'></div><br />
+				<div class="lg"><input type="password" id='password' name='password'></div><br />
 
 				<input type="submit" name="Valider">
 				<!--input type="reset" name="reset"-->
