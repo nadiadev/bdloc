@@ -13,17 +13,14 @@ validCart>input{
 	<ul>
 		<li><h4>Bdloc</h4></li>
 		<li><a href="<?php echo $this->url('catalogue');?>" >Les bd</a></li>
-		<li><a href="" >Mon panier</a></li>
+		<li><a href="<?php echo $this->url('panierShow');?>" >Mon panier</a></li>
 		<li><a href="" >Mon compte</a></li>
-		<!-- <li><a href="">Retour catalogue</a></li> -->
-		<li><a href="<?php echo $this->url('maps');?>">Point Relais</a></li>
+		<li><a href="<?php echo $this->url('home');?>">deconnexion</a></li>
+	
+		<div class="bonjour">
+			Bonjour :  <?php  echo $w_user['username'];?>
+		</div>
 	</ul>
-	<div class="bonjour">
-		Bonjour : <?php  echo $w_user['username'];?><br />
-		<br />
-		<a href="">deconnexion</a>
-	</div>
-
 </nav>
 
 <hr /> 
